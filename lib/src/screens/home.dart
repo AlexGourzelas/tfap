@@ -41,6 +41,8 @@ class _HomeState extends State<Home> {
               const PopupMenuItem(
                 value: "About",
                 child: Text("About"),
+                value: "How to",
+                child: Text("How to"),
               ),
             ],
             onSelected: (value) {
@@ -48,6 +50,9 @@ class _HomeState extends State<Home> {
                 case "About":
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const About()));
+                  case "How to":
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Howto()));
                   break;
               }
             },
