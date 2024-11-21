@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "To travel is to Live - Chans Christian Andersen",
+                    "To travel is to Live - Hans Christian Andersen",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 4.0),
