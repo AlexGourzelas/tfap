@@ -53,6 +53,7 @@ class _HomeState extends State<Home> {
                 case "About":
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const About()));
+                  break;
                   case "How to":
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const Howto()));
