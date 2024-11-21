@@ -66,12 +66,15 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Greco Tours",
+                    "To travel is to Live - Chans Christian Andersen",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    "Greco is your personal tour guide. Enjoy our narrated tours as you drive! Below, you will find a list containing available tours "
+                    "Embark on a journey through the picturesque villages and towns of Greece, each with its own charm!Discover hidden gems and off-the-beaten-path destinations 
+                    in Greece, away from the crowds.Capture stunning photographs of Greece's iconic landmarks and breathtaking landscapes.Experience the thrill of traditional 
+                    Greek festivals and celebrations, filled with music and dancing..Witness the natural beauty of Greece, from the majestic mountains to the azure blue sea.
+                    Below, you will find a list containing available tours "
                     "in ${tourForgeConfig.appName}. Tap on one to take a look!",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
