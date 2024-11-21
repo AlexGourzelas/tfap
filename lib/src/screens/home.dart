@@ -6,6 +6,7 @@ import '/src/data.dart';
 import '/src/screens/tour_details.dart';
 import '/src/widgets/asset_image_builder.dart';
 import 'about.dart';
+import 'Howto.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
