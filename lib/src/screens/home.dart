@@ -42,6 +42,7 @@ class _HomeState extends State<Home> {
               const PopupMenuItem(
                 value: "About",
                 child: Text("About"),
+              const PopupMenuItem(
                 value: "How to",
                 child: Text("How to"),
               ),
