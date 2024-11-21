@@ -5,14 +5,14 @@ import '/src/config.dart';
 import '/src/oss_licenses.dart';
 import '/src/widgets/collapsible_section.dart';
 
-class About extends StatelessWidget {
-  const About({super.key});
+class Howto extends StatelessWidget {
+  const Howto({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("About"),
+        title: const Text("How to"),
         foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
