@@ -7,6 +7,8 @@ import '/src/widgets/collapsible_section.dart';
 
 class Howto extends StatelessWidget {
   const Howto({super.key});
+  
+class InstructionPage extends StatelessWidget {  
   final List<Map<String, String>> instructions = [
     {
       'text': 'Step 1: Open the app',
