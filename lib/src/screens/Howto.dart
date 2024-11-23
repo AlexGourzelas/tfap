@@ -25,20 +25,30 @@ class Howto extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         children: [
           InstructionCard(
-            step: 'Step 1: Enable GPS',
+            step: 'Step 1: Follow Introductory Slides- Make sure you Enable GPS',
             description: 'Ensure your phone\'s GPS is turned on to get accurate location.',
             imageUrl: 'assets/enable_gps.png', // Add your image path here
           ),
           InstructionCard(
-            step: 'Step 2: Set Destination',
-            description: 'Enter your desired destination in the search bar.',
+            step: 'Step 2: Choose your Destination / tour',
+            description: 'Choose your desired destination from the available tours and click on download.',
             imageUrl: 'assets/set_destination.png', // Add your image path here
-          ),
+          ), 
           InstructionCard(
             step: 'Step 3: Start Navigation',
-            description: 'Press the navigate button to start your journey.',
+            description: 'Press the start button to start your journey.',
             imageUrl: 'assets/start_navigation.png', // Add your image path here
           ),
+          InstructionCard(
+            step: 'Step 4: Change Map rendering',
+            description: 'We recommend to change the map appearance.During map navigation, click on the midle icon (tiles) in the bottom right (3 icons).',
+            imageUrl: 'assets/set_render.png', // Add your image path here
+          ),
+          InstructionCard(
+            step: 'Step 5: Directions',
+            description: 'If not close to tour, Choose your desired tour. Click on first stop. Click on directions to reach and start the tour.',
+            imageUrl: 'assets/set_tour.png', // Add your image path here
+          ), 
         ],
       ),
     );
