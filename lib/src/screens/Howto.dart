@@ -46,7 +46,7 @@ class Howto extends StatelessWidget {
           ),
           InstructionCard(
             step: 'Step 5: Directions',
-            description: 'If not close to tour, Choose your desired tour. Click on first stop. Click on directions to reach and start the tour.',
+            description: 'If not close to tour, Choose your desired tour. Click on first stop. Click on directions to reach destination and start the tour.',
             imageUrl: 'assets/set_tour.png', // Add your image path here
           ), 
         ],
