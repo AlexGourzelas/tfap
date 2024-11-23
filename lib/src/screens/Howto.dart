@@ -7,7 +7,24 @@ import '/src/widgets/collapsible_section.dart';
 
 class Howto extends StatelessWidget {
   const Howto({super.key});
-
+  final List<Map<String, String>> instructions = [
+    {
+      'text': 'Step 1: Open the app',
+      'image': 'assets/images/step1.png',
+    },
+    {
+      'text': 'Step 2: Allow GPS access',
+      'image': 'assets/images/step2.png',
+    },
+    {
+      'text': 'Step 3: Enter your destination',
+      'image': 'assets/images/step3.png',
+    },
+    {
+      'text': 'Step 4: Start navigation',
+      'image': 'assets/images/step4.png',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,50 +38,41 @@ class Howto extends StatelessWidget {
           color: Theme.of(context).appBarTheme.foregroundColor,
         ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Show Usage Instructions'),
-          onPressed: () {
-            // Show the pop-up menu when the button is pressed
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return UsageInstructionsPopup();
-              },
-            );
-          },
-        ),
+      body: ListView.builder(
+        itemCount: instructions.length,
+        itemBuilder: (context, index) {
+          return InstructionCard(
+            text: instructions[index]['text']!,
+            image: instructions[index]['image']!,
+          );
+        },
       ),
     );
   }
 }
+class InstructionCard extends StatelessWidget {
+  final String text;
+  final String image;
 
-// Pop-up menu widget containing usage instructions
-class UsageInstructionsPopup extends StatelessWidget {
+  InstructionCard({required this.text, required this.image});
+
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Usage Instructions'),
-      content: SingleChildScrollView(
-        child: ListBody(
-          children: <Widget>[
-            Text('1. Open the app to start your journey.'),
-            Text('2. Allow GPS access for location tracking.'),
-            Text('3. Enter your destination in the search bar.'),
-            Text('4. Select your preferred travel mode (car, bike, walk).'),
-            Text('5. Follow the directions provided on the map.'),
-            Text('6. Use the options for real-time updates and rerouting.'),
+    return Card(
+      margin: EdgeInsets.all(10.0),
+      child: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Image.asset(image), // Display the instruction image
+            SizedBox(height: 10),
+            Text(
+              text,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
-      actions: <Widget>[
-        TextButton(
-          child: Text('Close'),
-          onPressed: () {
-            Navigator.of(context).pop(); // Close the dialog
-          },
-        ),
-      ],
     );
   }
 }
