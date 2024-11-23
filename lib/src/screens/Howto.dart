@@ -21,133 +21,50 @@ class Howto extends StatelessWidget {
           color: Theme.of(context).appBarTheme.foregroundColor,
         ),
       ),
-      body: ListView(
-        children: [
-          if (tourForgeConfig.appDesc != null)
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(tourForgeConfig.appDesc!,
-                  style: Theme.of(context).textTheme.bodyLarge),
-            ),
-          CollapsibleSection(
-            title: "Licensing Information",
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20.0,
-                    left: 20.0,
-                    right: 20.0,
-                  ),
-                  child: Text(
-                      "This application makes use of many open source software libraries. ",
-                      style: Theme.of(context).textTheme.bodyLarge),
-                ),
-                const SizedBox(height: 12.0),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20.0,
-                    right: 20.0,
-                  ),
-                  child: Text(
-                      "We thank the authors of the following libraries for generously "
-                      "making their work available under an open source license:"
-                      "http://www.grecoapp.com/2023/06/16/osl_credits/",
-                      style: Theme.of(context).textTheme.bodyLarge),
-                ),
-                const SizedBox(height: 12.0),
-                for (final package in ossLicenses)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 4.0,
-                      horizontal: 12.0,
-                    ),
-                    child: Material(
-                      type: MaterialType.card,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(16.0)),
-                      shadowColor: Colors.transparent,
-                      child: InkWell(
-                        onTap: () => showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => Dialog(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16.0),
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          const SizedBox(height: 16.0),
-                                          Text(
-                                            package.name,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium,
-                                          ),
-                                          Text(
-                                            package.license ??
-                                                "This package has no license",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      if (package.homepage != null)
-                                        TextButton(
-                                          onPressed: () {
-                                            launchUrl(
-                                                Uri.parse(package.homepage!),
-                                                mode: LaunchMode
-                                                    .externalApplication);
-                                          },
-                                          child: const Text('Project Homepage'),
-                                        ),
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text('Done'),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 8.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(12.0)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Text(
-                            package.name,
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        ],
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Show Usage Instructions'),
+          onPressed: () {
+            // Show the pop-up menu when the button is pressed
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return UsageInstructionsPopup();
+              },
+            );
+          },
+        ),
       ),
+    );
+  }
+}
+
+// Pop-up menu widget containing usage instructions
+class UsageInstructionsPopup extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Usage Instructions'),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: <Widget>[
+            Text('1. Open the app to start your journey.'),
+            Text('2. Allow GPS access for location tracking.'),
+            Text('3. Enter your destination in the search bar.'),
+            Text('4. Select your preferred travel mode (car, bike, walk).'),
+            Text('5. Follow the directions provided on the map.'),
+            Text('6. Use the options for real-time updates and rerouting.'),
+          ],
+        ),
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('Close'),
+          onPressed: () {
+            Navigator.of(context).pop(); // Close the dialog
+          },
+        ),
+      ],
     );
   }
 }
