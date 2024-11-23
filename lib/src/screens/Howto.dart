@@ -7,26 +7,6 @@ import '/src/widgets/collapsible_section.dart';
 
 class Howto extends StatelessWidget {
   const Howto({super.key});
-  
-class InstructionPage extends StatelessWidget {  
-  final List<Map<String, String>> instructions = [
-    {
-      'text': 'Step 1: Open the app',
-      'image': 'assets/images/step1.png',
-    },
-    {
-      'text': 'Step 2: Allow GPS access',
-      'image': 'assets/images/step2.png',
-    },
-    {
-      'text': 'Step 3: Enter your destination',
-      'image': 'assets/images/step3.png',
-    },
-    {
-      'text': 'Step 4: Start navigation',
-      'image': 'assets/images/step4.png',
-    },
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +32,28 @@ class InstructionPage extends StatelessWidget {
     );
   }
 }
+  
+class InstructionPage extends StatelessWidget {  
+  final List<Map<String, String>> instructions = [
+    {
+      'text': 'Step 1: Open the app',
+      'image': 'assets/images/step1.png',
+    },
+    {
+      'text': 'Step 2: Allow GPS access',
+      'image': 'assets/images/step2.png',
+    },
+    {
+      'text': 'Step 3: Enter your destination',
+      'image': 'assets/images/step3.png',
+    },
+    {
+      'text': 'Step 4: Start navigation',
+      'image': 'assets/images/step4.png',
+    },
+  ];
+}
+  
 class InstructionCard extends StatelessWidget {
   final String text;
   final String image;
