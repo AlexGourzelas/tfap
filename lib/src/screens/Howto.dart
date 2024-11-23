@@ -7,6 +7,7 @@ import '/src/widgets/collapsible_section.dart';
 
 class Howto extends StatelessWidget {
   const Howto({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,60 +21,55 @@ class Howto extends StatelessWidget {
           color: Theme.of(context).appBarTheme.foregroundColor,
         ),
       ),
-      body: ListView.builder(
-        itemCount: instructions.length,
-        itemBuilder: (context, index) {
-          return InstructionCard(
-            text: instructions[index]['text']!,
-            image: instructions[index]['image']!,
-          );
-        },
+      body: ListView(
+        padding: EdgeInsets.all(16.0),
+        children: [
+          InstructionCard(
+            step: 'Step 1: Enable GPS',
+            description: 'Ensure your phone\'s GPS is turned on to get accurate location.',
+            imageUrl: 'assets/enable_gps.png', // Add your image path here
+          ),
+          InstructionCard(
+            step: 'Step 2: Set Destination',
+            description: 'Enter your desired destination in the search bar.',
+            imageUrl: 'assets/set_destination.png', // Add your image path here
+          ),
+          InstructionCard(
+            step: 'Step 3: Start Navigation',
+            description: 'Press the navigate button to start your journey.',
+            imageUrl: 'assets/start_navigation.png', // Add your image path here
+          ),
+        ],
       ),
     );
   }
 }
-  
-class InstructionPage extends StatelessWidget {  
-  final List<Map<String, String>> instructions = [
-    {
-      'text': 'Step 1: Open the app',
-      'image': 'assets/images/step1.png',
-    },
-    {
-      'text': 'Step 2: Allow GPS access',
-      'image': 'assets/images/step2.png',
-    },
-    {
-      'text': 'Step 3: Enter your destination',
-      'image': 'assets/images/step3.png',
-    },
-    {
-      'text': 'Step 4: Start navigation',
-      'image': 'assets/images/step4.png',
-    },
-  ];
-}
-  
-class InstructionCard extends StatelessWidget {
-  final String text;
-  final String image;
 
-  InstructionCard({required this.text, required this.image});
+class InstructionCard extends StatelessWidget {
+  final String step;
+  final String description;
+  final String imageUrl;
+
+  InstructionCard({required this.step, required this.description, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10.0),
+      elevation: 4.0,
+      margin: EdgeInsets.symmetric(vertical: 10.0),
       child: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(image), // Display the instruction image
-            SizedBox(height: 10),
             Text(
-              text,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              step,
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 8.0),
+            Text(description),
+            SizedBox(height: 8.0),
+            Image.asset(imageUrl), // Display the image
           ],
         ),
       ),
