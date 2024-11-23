@@ -31,7 +31,7 @@ class Howto extends StatelessWidget {
           ),
           InstructionCard(
             step: 'Step 2: Choose your Destination / tour',
-            description: 'Choose your desired destination from the available tours and click on download.',
+            description: 'Choose your desired destination from the available tours and click on download button.',
             imageUrl: 'assets/set_destination.png', // Add your image path here
           ), 
           InstructionCard(
