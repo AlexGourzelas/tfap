@@ -81,7 +81,6 @@ class _HomeState extends State<Home> {
                   const SizedBox(height: 4.0),
                   Text(
                     "Embark on a journey through the picturesque villages and towns of Greece, each with its own charm!"
-                    "Discover hidden gems and off-the-beaten-path destinations in Greece, away from the crowds."
                     "Capture stunning photographs of Greece's iconic landmarks and breathtaking landscapes."
                     "Greco is your AI tour partner."
                     "Below, you will find a list containing available tours "
